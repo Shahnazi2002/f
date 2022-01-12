@@ -1,7 +1,7 @@
 # txttobinbotDatabase
 Text to Binary Bot (@txttobinbot) secondary database
 #
-⁉️ In this repository, I have stored some of the files required by the my Telegram bot and it will probably not be useful to you.
+⁉️ In this repository, I have stored some of the files required by the my Telegram bot and it will probably not be useful for you.
 #
 🤖 You can visit the bot at https://t.me/txttobinbot
 
