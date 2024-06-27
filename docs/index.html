@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lovely</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <style>
+        .how-countdown {margin-bottom: 20px;}
+    </style>
+</head>
+<body>
+	<div class="bg-g1 size1 flex-w flex-col-c-sb p-l-15 p-r-15 p-t-55 p-b-35 respon1">
 
+		<span></span>
+		<div class="flex-col-c p-t-50 p-b-50">
+			<p class="txt-center l1-txt2 p-b-60">
+				The age of<br>my little moon:
+			</p>
+
+			<div class="flex-col-c cd100 p-b-82">
+
+				<div class="flex-col-c-m size2 how-countdown">
+					<span id="years" class="l1-txt3 p-b-9">16</span>
+					<span class="s1-txt1">Years</span>
+				</div>
+
+				<div class="flex-col-c-m size2 how-countdown">
+					<span class="l1-txt3 p-b-9" id="months">0</span>
+					<span class="s1-txt1">Months</span>
+				</div>
+
+				<div class="flex-col-c-m size2 how-countdown">
+					<span class="l1-txt3 p-b-9" id="days">0</span>
+					<span class="s1-txt1">Days</span>
+				</div>
+
+			</div>
+
+		</div>
+
+		<span class="s1-txt3 txt-center">Made with ❤️ by Mohammad</span>
+		
+	</div>
+
+	<script>
+		function calculateAge(birthdate) {
+			const now = new Date();
+			const birth = new Date(birthdate);
+			const ageInMilliseconds = now - birth;
+
+			const years = now.getFullYear() - birth.getFullYear();
+			let months = now.getMonth() - birth.getMonth() + years * 12;
+			let days = now.getDate() - birth.getDate();
+
+			if (days < 0) {
+				months -= 1;
+				const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+				days += lastMonth.getDate();
+			}
+
+			return { months, days };
+		}
+
+		function updateAgeDisplay() {
+			const birthdate = '2019-04-15T00:00:00';
+			const age = calculateAge(birthdate);
+			document.getElementById('months').innerText = age.months;
+			document.getElementById('days').innerText = age.days;
+		}
+		updateAgeDisplay();
+	</script>
+
+</body>
+</html>
